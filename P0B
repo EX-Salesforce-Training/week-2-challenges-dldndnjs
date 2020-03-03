@@ -1,0 +1,92 @@
+public class Project0B_1 {
+        
+		public static Integer nFibonacci( Integer n ){
+   			List<Integer> nfib = new List<Integer> {1,1};
+//            Integer i;
+            Integer sum;
+            
+            if (n <= 0){
+                return 0;
+            } else if (n == 1 || n == 2) {
+				return 1;                
+            } 
+            
+            for(Integer i = 0; i < n-2; i++){
+            	sum = nfib.get(nfib.size()-1) + nfib.get(nfib.size()-2);
+                // sum = nfib.get((nfib.size()-1) + (nfib.get(nfib.size()-2)));
+                nfib.add(sum);
+            }
+  			 System.debug(sum);
+    
+    		return sum;
+  
+        }
+
+    	public static Integer[] sortArray( Integer[] intList ) {
+    	//n is size of IntList.
+        Integer n = intList.Size();
+         //loop until size of List
+            for(Integer i = 0; i < n; i++){
+                for (Integer j = 1; j < n; j++){
+                    //If 1st integer is bigger than 2nd integer use if method;
+                    if(intList[j - 1] >= intList[j]) {
+                        // Change 1st and 2nd integer values
+                        Integer temp;
+                        temp = intList[j-1];
+                        intList[j-1] = intList[j];
+                        intList[j] = temp;
+
+                    }
+                }
+                
+            }
+            System.debug(intList);
+        	return intList;
+        }
+    
+    
+        public static Integer nFactorial(Integer n) {
+   
+        Integer sum = 1;
+        for(Integer i = 1; i <= n; i++){
+            // Factorial values.
+           sum = sum * i;
+        }
+        
+        system.debug(sum);
+    	return sum;
+            
+    	} 
+    
+    
+    	public static Integer[] rotateLeftNTimes( Integer[] YingHao, Integer n) {
+        
+        for(Integer i = 0; i < n; i++) {
+            //Add 1st list value to the end of value
+            YingHao.add(YingHao.get(0));
+            YingHao.remove(0); // remove 1st value;
+        }
+        System.debug(YingHao);
+        return YingHao;
+	}
+
+    	public static Boolean bracketsAreBalanced( String s ) {
+          
+            Map<String,String> bracket = new Map<string,String>{'(' => ')' , '{' => '}' , '[' => ']'}; //Key Listed Map need to match value on Map
+            List<String> bracket_Checking = new List<String>();  // new String List
+                for (Integer i = 0; i < s.Length()-1; i++){ //Loop until s Length
+				if(bracket.containsKey(s.substring(i,i+1))){  
+                    if((bracket.get(s.substring(i, i+1))) == bracket_Checking[bracket_Checking.Size()-1] ){ // if map key match remove
+							bracket_Checking.remove(bracket_Checking.size()-1);  
+						}
+                    }
+                    else if (bracket.containsKey(s.substring(i,i+1)) == false){ //1st here and add them
+					bracket_Checking.add(s.substring(i,i+1)); 
+					}
+                }
+             
+            return bracket_Checking.Size()== 0;
+         
+        }
+    
+}
